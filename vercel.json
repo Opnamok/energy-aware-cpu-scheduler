@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "outputDirectory": "frontend/public",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/scheduler-index.html"
+    }
+  ],
+  "cleanUrls": false,
+  "trailingSlash": false
+}

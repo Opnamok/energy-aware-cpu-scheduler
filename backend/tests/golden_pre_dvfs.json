@@ -1,0 +1,3341 @@
+{
+  "edge_gap": {
+    "input": {
+      "processes": [
+        {
+          "arrival": 0,
+          "burst": 2,
+          "pid": 1,
+          "priority": 1
+        },
+        {
+          "arrival": 10,
+          "burst": 3,
+          "pid": 2,
+          "priority": 2
+        }
+      ],
+      "quantum": 2,
+      "threshold": null
+    },
+    "runs": {
+      "eah": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 10
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "long_tasks_count": 1,
+          "short_tasks_count": 1,
+          "threshold": 2.5,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "classification": "short",
+            "completion": 2,
+            "pid": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "classification": "long",
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      },
+      "fcfs": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 10
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "completion": 2,
+            "pid": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      },
+      "priority": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 10
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "completion": 2,
+            "pid": 1,
+            "priority": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "completion": 13,
+            "pid": 2,
+            "priority": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      },
+      "priority_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 10
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "completion": 2,
+            "pid": 1,
+            "priority": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "completion": 13,
+            "pid": 2,
+            "priority": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      },
+      "round_robin": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 12
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "completion": 2,
+            "pid": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      },
+      "sjf_non_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 10
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "completion": 2,
+            "pid": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      },
+      "sjf_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 38.46,
+          "fairness_index": 0.9615,
+          "throughput": 0.1538
+        },
+        "context_switches": 1,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 10,
+            "process": "IDLE",
+            "start": 2
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 10
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 2.5,
+          "avg_waiting": 0.0,
+          "total_completion": 13
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 2,
+            "completion": 2,
+            "pid": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 10,
+            "burst": 3,
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      }
+    }
+  },
+  "edge_single": {
+    "input": {
+      "processes": [
+        {
+          "arrival": 0,
+          "burst": 5,
+          "pid": 1,
+          "priority": 1
+        }
+      ],
+      "quantum": 2,
+      "threshold": null
+    },
+    "runs": {
+      "eah": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "long_tasks_count": 0,
+          "short_tasks_count": 1,
+          "threshold": 5.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "classification": "short",
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      },
+      "fcfs": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      },
+      "priority": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "priority": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      },
+      "priority_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "priority": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      },
+      "round_robin": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 4,
+            "process": "P1",
+            "start": 2
+          },
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 4
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      },
+      "sjf_non_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      },
+      "sjf_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 1.0,
+          "throughput": 0.2
+        },
+        "context_switches": 0,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 5.0,
+          "avg_waiting": 0.0,
+          "total_completion": 5
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          }
+        ]
+      }
+    }
+  },
+  "sample_1": {
+    "input": {
+      "processes": [
+        {
+          "arrival": 0,
+          "burst": 5,
+          "pid": 1,
+          "priority": 2
+        },
+        {
+          "arrival": 1,
+          "burst": 3,
+          "pid": 2,
+          "priority": 1
+        },
+        {
+          "arrival": 2,
+          "burst": 8,
+          "pid": 3,
+          "priority": 3
+        },
+        {
+          "arrival": 3,
+          "burst": 6,
+          "pid": 4,
+          "priority": 2
+        }
+      ],
+      "quantum": 2,
+      "threshold": null
+    },
+    "runs": {
+      "eah": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.8023,
+          "throughput": 0.1818
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 8,
+            "process": "P2",
+            "start": 5
+          },
+          {
+            "end": 16,
+            "process": "P3",
+            "start": 8
+          },
+          {
+            "end": 22,
+            "process": "P4",
+            "start": 16
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 11.25,
+          "avg_waiting": 5.75,
+          "long_tasks_count": 2,
+          "short_tasks_count": 2,
+          "threshold": 5.5,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "classification": "short",
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "classification": "short",
+            "completion": 8,
+            "pid": 2,
+            "turnaround": 7,
+            "waiting": 4
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "classification": "long",
+            "completion": 16,
+            "pid": 3,
+            "turnaround": 14,
+            "waiting": 6
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "classification": "long",
+            "completion": 22,
+            "pid": 4,
+            "turnaround": 19,
+            "waiting": 13
+          }
+        ]
+      },
+      "fcfs": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.8023,
+          "throughput": 0.1818
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 8,
+            "process": "P2",
+            "start": 5
+          },
+          {
+            "end": 16,
+            "process": "P3",
+            "start": 8
+          },
+          {
+            "end": 22,
+            "process": "P4",
+            "start": 16
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 11.25,
+          "avg_waiting": 5.75,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "completion": 8,
+            "pid": 2,
+            "turnaround": 7,
+            "waiting": 4
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "completion": 16,
+            "pid": 3,
+            "turnaround": 14,
+            "waiting": 6
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "completion": 22,
+            "pid": 4,
+            "turnaround": 19,
+            "waiting": 13
+          }
+        ]
+      },
+      "priority": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7769,
+          "throughput": 0.1818
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 8,
+            "process": "P2",
+            "start": 5
+          },
+          {
+            "end": 14,
+            "process": "P4",
+            "start": 8
+          },
+          {
+            "end": 22,
+            "process": "P3",
+            "start": 14
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.75,
+          "avg_waiting": 5.25,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "priority": 2,
+            "turnaround": 5,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "completion": 8,
+            "pid": 2,
+            "priority": 1,
+            "turnaround": 7,
+            "waiting": 4
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "completion": 22,
+            "pid": 3,
+            "priority": 3,
+            "turnaround": 20,
+            "waiting": 12
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "completion": 14,
+            "pid": 4,
+            "priority": 2,
+            "turnaround": 11,
+            "waiting": 5
+          }
+        ]
+      },
+      "priority_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7424,
+          "throughput": 0.1818
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 4,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 4
+          },
+          {
+            "end": 14,
+            "process": "P4",
+            "start": 8
+          },
+          {
+            "end": 22,
+            "process": "P3",
+            "start": 14
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.5,
+          "avg_waiting": 5.0,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 8,
+            "pid": 1,
+            "priority": 2,
+            "turnaround": 8,
+            "waiting": 3
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "completion": 4,
+            "pid": 2,
+            "priority": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "completion": 22,
+            "pid": 3,
+            "priority": 3,
+            "turnaround": 20,
+            "waiting": 12
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "completion": 14,
+            "pid": 4,
+            "priority": 2,
+            "turnaround": 11,
+            "waiting": 5
+          }
+        ]
+      },
+      "round_robin": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.9444,
+          "throughput": 0.1818
+        },
+        "context_switches": 11,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 4,
+            "process": "P2",
+            "start": 2
+          },
+          {
+            "end": 6,
+            "process": "P3",
+            "start": 4
+          },
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 6
+          },
+          {
+            "end": 10,
+            "process": "P4",
+            "start": 8
+          },
+          {
+            "end": 11,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 13,
+            "process": "P3",
+            "start": 11
+          },
+          {
+            "end": 14,
+            "process": "P1",
+            "start": 13
+          },
+          {
+            "end": 16,
+            "process": "P4",
+            "start": 14
+          },
+          {
+            "end": 18,
+            "process": "P3",
+            "start": 16
+          },
+          {
+            "end": 20,
+            "process": "P4",
+            "start": 18
+          },
+          {
+            "end": 22,
+            "process": "P3",
+            "start": 20
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 15.25,
+          "avg_waiting": 9.75,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 14,
+            "pid": 1,
+            "turnaround": 14,
+            "waiting": 9
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "completion": 11,
+            "pid": 2,
+            "turnaround": 10,
+            "waiting": 7
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "completion": 22,
+            "pid": 3,
+            "turnaround": 20,
+            "waiting": 12
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "completion": 20,
+            "pid": 4,
+            "turnaround": 17,
+            "waiting": 11
+          }
+        ]
+      },
+      "sjf_non_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7769,
+          "throughput": 0.1818
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 5,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 8,
+            "process": "P2",
+            "start": 5
+          },
+          {
+            "end": 14,
+            "process": "P4",
+            "start": 8
+          },
+          {
+            "end": 22,
+            "process": "P3",
+            "start": 14
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.75,
+          "avg_waiting": 5.25,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 5,
+            "pid": 1,
+            "turnaround": 5,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "completion": 8,
+            "pid": 2,
+            "turnaround": 7,
+            "waiting": 4
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "completion": 22,
+            "pid": 3,
+            "turnaround": 20,
+            "waiting": 12
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "completion": 14,
+            "pid": 4,
+            "turnaround": 11,
+            "waiting": 5
+          }
+        ]
+      },
+      "sjf_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7424,
+          "throughput": 0.1818
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 4,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 4
+          },
+          {
+            "end": 14,
+            "process": "P4",
+            "start": 8
+          },
+          {
+            "end": 22,
+            "process": "P3",
+            "start": 14
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.5,
+          "avg_waiting": 5.0,
+          "total_completion": 22
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 5,
+            "completion": 8,
+            "pid": 1,
+            "turnaround": 8,
+            "waiting": 3
+          },
+          {
+            "arrival": 1,
+            "burst": 3,
+            "completion": 4,
+            "pid": 2,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 2,
+            "burst": 8,
+            "completion": 22,
+            "pid": 3,
+            "turnaround": 20,
+            "waiting": 12
+          },
+          {
+            "arrival": 3,
+            "burst": 6,
+            "completion": 14,
+            "pid": 4,
+            "turnaround": 11,
+            "waiting": 5
+          }
+        ]
+      }
+    }
+  },
+  "sample_2": {
+    "input": {
+      "processes": [
+        {
+          "arrival": 0,
+          "burst": 10,
+          "pid": 1,
+          "priority": 3
+        },
+        {
+          "arrival": 1,
+          "burst": 2,
+          "pid": 2,
+          "priority": 1
+        },
+        {
+          "arrival": 2,
+          "burst": 1,
+          "pid": 3,
+          "priority": 2
+        },
+        {
+          "arrival": 3,
+          "burst": 5,
+          "pid": 4,
+          "priority": 1
+        },
+        {
+          "arrival": 4,
+          "burst": 3,
+          "pid": 5,
+          "priority": 2
+        }
+      ],
+      "quantum": 3,
+      "threshold": null
+    },
+    "runs": {
+      "eah": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.9385,
+          "throughput": 0.2381
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 10,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 11,
+            "process": "P3",
+            "start": 10
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 11
+          },
+          {
+            "end": 16,
+            "process": "P5",
+            "start": 13
+          },
+          {
+            "end": 21,
+            "process": "P4",
+            "start": 16
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 12.2,
+          "avg_waiting": 8.0,
+          "long_tasks_count": 2,
+          "short_tasks_count": 3,
+          "threshold": 4.2,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "classification": "long",
+            "completion": 10,
+            "pid": 1,
+            "turnaround": 10,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "classification": "short",
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 12,
+            "waiting": 10
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "classification": "short",
+            "completion": 11,
+            "pid": 3,
+            "turnaround": 9,
+            "waiting": 8
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "classification": "long",
+            "completion": 21,
+            "pid": 4,
+            "turnaround": 18,
+            "waiting": 13
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "classification": "short",
+            "completion": 16,
+            "pid": 5,
+            "turnaround": 12,
+            "waiting": 9
+          }
+        ]
+      },
+      "fcfs": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.957,
+          "throughput": 0.2381
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 10,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 13,
+            "process": "P3",
+            "start": 12
+          },
+          {
+            "end": 18,
+            "process": "P4",
+            "start": 13
+          },
+          {
+            "end": 21,
+            "process": "P5",
+            "start": 18
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 12.8,
+          "avg_waiting": 8.6,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "completion": 10,
+            "pid": 1,
+            "turnaround": 10,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 12,
+            "pid": 2,
+            "turnaround": 11,
+            "waiting": 9
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "completion": 13,
+            "pid": 3,
+            "turnaround": 11,
+            "waiting": 10
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 18,
+            "pid": 4,
+            "turnaround": 15,
+            "waiting": 10
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "completion": 21,
+            "pid": 5,
+            "turnaround": 17,
+            "waiting": 14
+          }
+        ]
+      },
+      "priority": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.9613,
+          "throughput": 0.2381
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 10,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 17,
+            "process": "P4",
+            "start": 12
+          },
+          {
+            "end": 18,
+            "process": "P3",
+            "start": 17
+          },
+          {
+            "end": 21,
+            "process": "P5",
+            "start": 18
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 13.6,
+          "avg_waiting": 9.4,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "completion": 10,
+            "pid": 1,
+            "priority": 3,
+            "turnaround": 10,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 12,
+            "pid": 2,
+            "priority": 1,
+            "turnaround": 11,
+            "waiting": 9
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "completion": 18,
+            "pid": 3,
+            "priority": 2,
+            "turnaround": 16,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 17,
+            "pid": 4,
+            "priority": 1,
+            "turnaround": 14,
+            "waiting": 9
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "completion": 21,
+            "pid": 5,
+            "priority": 2,
+            "turnaround": 17,
+            "waiting": 14
+          }
+        ]
+      },
+      "priority_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.6343,
+          "throughput": 0.2381
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 3,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 8,
+            "process": "P4",
+            "start": 3
+          },
+          {
+            "end": 9,
+            "process": "P3",
+            "start": 8
+          },
+          {
+            "end": 12,
+            "process": "P5",
+            "start": 9
+          },
+          {
+            "end": 21,
+            "process": "P1",
+            "start": 12
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 8.6,
+          "avg_waiting": 4.4,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "completion": 21,
+            "pid": 1,
+            "priority": 3,
+            "turnaround": 21,
+            "waiting": 11
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 3,
+            "pid": 2,
+            "priority": 1,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "completion": 9,
+            "pid": 3,
+            "priority": 2,
+            "turnaround": 7,
+            "waiting": 6
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 8,
+            "pid": 4,
+            "priority": 1,
+            "turnaround": 5,
+            "waiting": 0
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "completion": 12,
+            "pid": 5,
+            "priority": 2,
+            "turnaround": 8,
+            "waiting": 5
+          }
+        ]
+      },
+      "round_robin": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7382,
+          "throughput": 0.2381
+        },
+        "context_switches": 7,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P2",
+            "start": 3
+          },
+          {
+            "end": 6,
+            "process": "P3",
+            "start": 5
+          },
+          {
+            "end": 9,
+            "process": "P4",
+            "start": 6
+          },
+          {
+            "end": 12,
+            "process": "P1",
+            "start": 9
+          },
+          {
+            "end": 15,
+            "process": "P5",
+            "start": 12
+          },
+          {
+            "end": 17,
+            "process": "P4",
+            "start": 15
+          },
+          {
+            "end": 20,
+            "process": "P1",
+            "start": 17
+          },
+          {
+            "end": 21,
+            "process": "P1",
+            "start": 20
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.8,
+          "avg_waiting": 6.6,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "completion": 21,
+            "pid": 1,
+            "turnaround": 21,
+            "waiting": 11
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 5,
+            "pid": 2,
+            "turnaround": 4,
+            "waiting": 2
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "completion": 6,
+            "pid": 3,
+            "turnaround": 4,
+            "waiting": 3
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 17,
+            "pid": 4,
+            "turnaround": 14,
+            "waiting": 9
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "completion": 15,
+            "pid": 5,
+            "turnaround": 11,
+            "waiting": 8
+          }
+        ]
+      },
+      "sjf_non_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.9385,
+          "throughput": 0.2381
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 10,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 11,
+            "process": "P3",
+            "start": 10
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 11
+          },
+          {
+            "end": 16,
+            "process": "P5",
+            "start": 13
+          },
+          {
+            "end": 21,
+            "process": "P4",
+            "start": 16
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 12.2,
+          "avg_waiting": 8.0,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "completion": 10,
+            "pid": 1,
+            "turnaround": 10,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 12,
+            "waiting": 10
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "completion": 11,
+            "pid": 3,
+            "turnaround": 9,
+            "waiting": 8
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 21,
+            "pid": 4,
+            "turnaround": 18,
+            "waiting": 13
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "completion": 16,
+            "pid": 5,
+            "turnaround": 12,
+            "waiting": 9
+          }
+        ]
+      },
+      "sjf_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.508,
+          "throughput": 0.2381
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 3,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 4,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 7,
+            "process": "P5",
+            "start": 4
+          },
+          {
+            "end": 12,
+            "process": "P4",
+            "start": 7
+          },
+          {
+            "end": 21,
+            "process": "P1",
+            "start": 12
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 7.4,
+          "avg_waiting": 3.2,
+          "total_completion": 21
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 10,
+            "completion": 21,
+            "pid": 1,
+            "turnaround": 21,
+            "waiting": 11
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 3,
+            "pid": 2,
+            "turnaround": 2,
+            "waiting": 0
+          },
+          {
+            "arrival": 2,
+            "burst": 1,
+            "completion": 4,
+            "pid": 3,
+            "turnaround": 2,
+            "waiting": 1
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 12,
+            "pid": 4,
+            "turnaround": 9,
+            "waiting": 4
+          },
+          {
+            "arrival": 4,
+            "burst": 3,
+            "completion": 7,
+            "pid": 5,
+            "turnaround": 3,
+            "waiting": 0
+          }
+        ]
+      }
+    }
+  },
+  "sample_3": {
+    "input": {
+      "processes": [
+        {
+          "arrival": 0,
+          "burst": 3,
+          "pid": 1,
+          "priority": 1
+        },
+        {
+          "arrival": 0,
+          "burst": 9,
+          "pid": 2,
+          "priority": 2
+        },
+        {
+          "arrival": 1,
+          "burst": 2,
+          "pid": 3,
+          "priority": 1
+        },
+        {
+          "arrival": 2,
+          "burst": 12,
+          "pid": 4,
+          "priority": 3
+        },
+        {
+          "arrival": 3,
+          "burst": 4,
+          "pid": 5,
+          "priority": 2
+        },
+        {
+          "arrival": 4,
+          "burst": 1,
+          "pid": 6,
+          "priority": 1
+        }
+      ],
+      "quantum": 2,
+      "threshold": 5
+    },
+    "runs": {
+      "eah": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.5333,
+          "throughput": 0.1935
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 6,
+            "process": "P6",
+            "start": 5
+          },
+          {
+            "end": 10,
+            "process": "P5",
+            "start": 6
+          },
+          {
+            "end": 19,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 31,
+            "process": "P4",
+            "start": 19
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.67,
+          "avg_waiting": 5.5,
+          "long_tasks_count": 2,
+          "short_tasks_count": 4,
+          "threshold": 5,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "classification": "short",
+            "completion": 3,
+            "pid": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "classification": "long",
+            "completion": 19,
+            "pid": 2,
+            "turnaround": 19,
+            "waiting": 10
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "classification": "short",
+            "completion": 5,
+            "pid": 3,
+            "turnaround": 4,
+            "waiting": 2
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "classification": "long",
+            "completion": 31,
+            "pid": 4,
+            "turnaround": 29,
+            "waiting": 17
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "classification": "short",
+            "completion": 10,
+            "pid": 5,
+            "turnaround": 7,
+            "waiting": 3
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "classification": "short",
+            "completion": 6,
+            "pid": 6,
+            "turnaround": 2,
+            "waiting": 1
+          }
+        ]
+      },
+      "fcfs": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7949,
+          "throughput": 0.1935
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 3
+          },
+          {
+            "end": 14,
+            "process": "P3",
+            "start": 12
+          },
+          {
+            "end": 26,
+            "process": "P4",
+            "start": 14
+          },
+          {
+            "end": 30,
+            "process": "P5",
+            "start": 26
+          },
+          {
+            "end": 31,
+            "process": "P6",
+            "start": 30
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 17.67,
+          "avg_waiting": 12.5,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "completion": 3,
+            "pid": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "completion": 12,
+            "pid": 2,
+            "turnaround": 12,
+            "waiting": 3
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 14,
+            "pid": 3,
+            "turnaround": 13,
+            "waiting": 11
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "completion": 26,
+            "pid": 4,
+            "turnaround": 24,
+            "waiting": 12
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "completion": 30,
+            "pid": 5,
+            "turnaround": 27,
+            "waiting": 23
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "completion": 31,
+            "pid": 6,
+            "turnaround": 27,
+            "waiting": 26
+          }
+        ]
+      },
+      "priority": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.5873,
+          "throughput": 0.1935
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 6,
+            "process": "P6",
+            "start": 5
+          },
+          {
+            "end": 15,
+            "process": "P2",
+            "start": 6
+          },
+          {
+            "end": 19,
+            "process": "P5",
+            "start": 15
+          },
+          {
+            "end": 31,
+            "process": "P4",
+            "start": 19
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 11.5,
+          "avg_waiting": 6.33,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "completion": 3,
+            "pid": 1,
+            "priority": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "completion": 15,
+            "pid": 2,
+            "priority": 2,
+            "turnaround": 15,
+            "waiting": 6
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 5,
+            "pid": 3,
+            "priority": 1,
+            "turnaround": 4,
+            "waiting": 2
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "completion": 31,
+            "pid": 4,
+            "priority": 3,
+            "turnaround": 29,
+            "waiting": 17
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "completion": 19,
+            "pid": 5,
+            "priority": 2,
+            "turnaround": 16,
+            "waiting": 12
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "completion": 6,
+            "pid": 6,
+            "priority": 1,
+            "turnaround": 2,
+            "waiting": 1
+          }
+        ]
+      },
+      "priority_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.5873,
+          "throughput": 0.1935
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 6,
+            "process": "P6",
+            "start": 5
+          },
+          {
+            "end": 15,
+            "process": "P2",
+            "start": 6
+          },
+          {
+            "end": 19,
+            "process": "P5",
+            "start": 15
+          },
+          {
+            "end": 31,
+            "process": "P4",
+            "start": 19
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 11.5,
+          "avg_waiting": 6.33,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "completion": 3,
+            "pid": 1,
+            "priority": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "completion": 15,
+            "pid": 2,
+            "priority": 2,
+            "turnaround": 15,
+            "waiting": 6
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 5,
+            "pid": 3,
+            "priority": 1,
+            "turnaround": 4,
+            "waiting": 2
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "completion": 31,
+            "pid": 4,
+            "priority": 3,
+            "turnaround": 29,
+            "waiting": 17
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "completion": 19,
+            "pid": 5,
+            "priority": 2,
+            "turnaround": 16,
+            "waiting": 12
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "completion": 6,
+            "pid": 6,
+            "priority": 1,
+            "turnaround": 2,
+            "waiting": 1
+          }
+        ]
+      },
+      "round_robin": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7336,
+          "throughput": 0.1935
+        },
+        "context_switches": 15,
+        "gantt": [
+          {
+            "end": 2,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 4,
+            "process": "P2",
+            "start": 2
+          },
+          {
+            "end": 6,
+            "process": "P3",
+            "start": 4
+          },
+          {
+            "end": 8,
+            "process": "P4",
+            "start": 6
+          },
+          {
+            "end": 9,
+            "process": "P1",
+            "start": 8
+          },
+          {
+            "end": 11,
+            "process": "P5",
+            "start": 9
+          },
+          {
+            "end": 12,
+            "process": "P6",
+            "start": 11
+          },
+          {
+            "end": 14,
+            "process": "P2",
+            "start": 12
+          },
+          {
+            "end": 16,
+            "process": "P4",
+            "start": 14
+          },
+          {
+            "end": 18,
+            "process": "P5",
+            "start": 16
+          },
+          {
+            "end": 20,
+            "process": "P2",
+            "start": 18
+          },
+          {
+            "end": 22,
+            "process": "P4",
+            "start": 20
+          },
+          {
+            "end": 24,
+            "process": "P2",
+            "start": 22
+          },
+          {
+            "end": 26,
+            "process": "P4",
+            "start": 24
+          },
+          {
+            "end": 27,
+            "process": "P2",
+            "start": 26
+          },
+          {
+            "end": 29,
+            "process": "P4",
+            "start": 27
+          },
+          {
+            "end": 31,
+            "process": "P4",
+            "start": 29
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 15.5,
+          "avg_waiting": 10.33,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "completion": 9,
+            "pid": 1,
+            "turnaround": 9,
+            "waiting": 6
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "completion": 27,
+            "pid": 2,
+            "turnaround": 27,
+            "waiting": 18
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 6,
+            "pid": 3,
+            "turnaround": 5,
+            "waiting": 3
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "completion": 31,
+            "pid": 4,
+            "turnaround": 29,
+            "waiting": 17
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "completion": 18,
+            "pid": 5,
+            "turnaround": 15,
+            "waiting": 11
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "completion": 12,
+            "pid": 6,
+            "turnaround": 8,
+            "waiting": 7
+          }
+        ]
+      },
+      "sjf_non_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.5333,
+          "throughput": 0.1935
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 6,
+            "process": "P6",
+            "start": 5
+          },
+          {
+            "end": 10,
+            "process": "P5",
+            "start": 6
+          },
+          {
+            "end": 19,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 31,
+            "process": "P4",
+            "start": 19
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.67,
+          "avg_waiting": 5.5,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "completion": 3,
+            "pid": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "completion": 19,
+            "pid": 2,
+            "turnaround": 19,
+            "waiting": 10
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 5,
+            "pid": 3,
+            "turnaround": 4,
+            "waiting": 2
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "completion": 31,
+            "pid": 4,
+            "turnaround": 29,
+            "waiting": 17
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "completion": 10,
+            "pid": 5,
+            "turnaround": 7,
+            "waiting": 3
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "completion": 6,
+            "pid": 6,
+            "turnaround": 2,
+            "waiting": 1
+          }
+        ]
+      },
+      "sjf_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.5333,
+          "throughput": 0.1935
+        },
+        "context_switches": 5,
+        "gantt": [
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 6,
+            "process": "P6",
+            "start": 5
+          },
+          {
+            "end": 10,
+            "process": "P5",
+            "start": 6
+          },
+          {
+            "end": 19,
+            "process": "P2",
+            "start": 10
+          },
+          {
+            "end": 31,
+            "process": "P4",
+            "start": 19
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 10.67,
+          "avg_waiting": 5.5,
+          "total_completion": 31
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 3,
+            "completion": 3,
+            "pid": 1,
+            "turnaround": 3,
+            "waiting": 0
+          },
+          {
+            "arrival": 0,
+            "burst": 9,
+            "completion": 19,
+            "pid": 2,
+            "turnaround": 19,
+            "waiting": 10
+          },
+          {
+            "arrival": 1,
+            "burst": 2,
+            "completion": 5,
+            "pid": 3,
+            "turnaround": 4,
+            "waiting": 2
+          },
+          {
+            "arrival": 2,
+            "burst": 12,
+            "completion": 31,
+            "pid": 4,
+            "turnaround": 29,
+            "waiting": 17
+          },
+          {
+            "arrival": 3,
+            "burst": 4,
+            "completion": 10,
+            "pid": 5,
+            "turnaround": 7,
+            "waiting": 3
+          },
+          {
+            "arrival": 4,
+            "burst": 1,
+            "completion": 6,
+            "pid": 6,
+            "turnaround": 2,
+            "waiting": 1
+          }
+        ]
+      }
+    }
+  },
+  "sample_4": {
+    "input": {
+      "processes": [
+        {
+          "arrival": 0,
+          "burst": 8,
+          "pid": 1,
+          "priority": 2
+        },
+        {
+          "arrival": 1,
+          "burst": 4,
+          "pid": 2,
+          "priority": 1
+        },
+        {
+          "arrival": 2,
+          "burst": 9,
+          "pid": 3,
+          "priority": 3
+        },
+        {
+          "arrival": 3,
+          "burst": 5,
+          "pid": 4,
+          "priority": 1
+        }
+      ],
+      "quantum": 1,
+      "threshold": null
+    },
+    "runs": {
+      "eah": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.8487,
+          "throughput": 0.1538
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 8
+          },
+          {
+            "end": 17,
+            "process": "P4",
+            "start": 12
+          },
+          {
+            "end": 26,
+            "process": "P3",
+            "start": 17
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 14.25,
+          "avg_waiting": 7.75,
+          "long_tasks_count": 2,
+          "short_tasks_count": 2,
+          "threshold": 6.5,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "classification": "long",
+            "completion": 8,
+            "pid": 1,
+            "turnaround": 8,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "classification": "short",
+            "completion": 12,
+            "pid": 2,
+            "turnaround": 11,
+            "waiting": 7
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "classification": "long",
+            "completion": 26,
+            "pid": 3,
+            "turnaround": 24,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "classification": "short",
+            "completion": 17,
+            "pid": 4,
+            "turnaround": 14,
+            "waiting": 9
+          }
+        ]
+      },
+      "fcfs": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.8653,
+          "throughput": 0.1538
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 8
+          },
+          {
+            "end": 21,
+            "process": "P3",
+            "start": 12
+          },
+          {
+            "end": 26,
+            "process": "P4",
+            "start": 21
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 15.25,
+          "avg_waiting": 8.75,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "completion": 8,
+            "pid": 1,
+            "turnaround": 8,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "completion": 12,
+            "pid": 2,
+            "turnaround": 11,
+            "waiting": 7
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "completion": 21,
+            "pid": 3,
+            "turnaround": 19,
+            "waiting": 10
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 26,
+            "pid": 4,
+            "turnaround": 23,
+            "waiting": 18
+          }
+        ]
+      },
+      "priority": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.8487,
+          "throughput": 0.1538
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 8
+          },
+          {
+            "end": 17,
+            "process": "P4",
+            "start": 12
+          },
+          {
+            "end": 26,
+            "process": "P3",
+            "start": 17
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 14.25,
+          "avg_waiting": 7.75,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "completion": 8,
+            "pid": 1,
+            "priority": 2,
+            "turnaround": 8,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "completion": 12,
+            "pid": 2,
+            "priority": 1,
+            "turnaround": 11,
+            "waiting": 7
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "completion": 26,
+            "pid": 3,
+            "priority": 3,
+            "turnaround": 24,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 17,
+            "pid": 4,
+            "priority": 1,
+            "turnaround": 14,
+            "waiting": 9
+          }
+        ]
+      },
+      "priority_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7269,
+          "throughput": 0.1538
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 10,
+            "process": "P4",
+            "start": 5
+          },
+          {
+            "end": 17,
+            "process": "P1",
+            "start": 10
+          },
+          {
+            "end": 26,
+            "process": "P3",
+            "start": 17
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 13.0,
+          "avg_waiting": 6.5,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "completion": 17,
+            "pid": 1,
+            "priority": 2,
+            "turnaround": 17,
+            "waiting": 9
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "completion": 5,
+            "pid": 2,
+            "priority": 1,
+            "turnaround": 4,
+            "waiting": 0
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "completion": 26,
+            "pid": 3,
+            "priority": 3,
+            "turnaround": 24,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 10,
+            "pid": 4,
+            "priority": 1,
+            "turnaround": 7,
+            "waiting": 2
+          }
+        ]
+      },
+      "round_robin": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.9389,
+          "throughput": 0.1538
+        },
+        "context_switches": 23,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 2,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 3,
+            "process": "P1",
+            "start": 2
+          },
+          {
+            "end": 4,
+            "process": "P3",
+            "start": 3
+          },
+          {
+            "end": 5,
+            "process": "P2",
+            "start": 4
+          },
+          {
+            "end": 6,
+            "process": "P4",
+            "start": 5
+          },
+          {
+            "end": 7,
+            "process": "P1",
+            "start": 6
+          },
+          {
+            "end": 8,
+            "process": "P3",
+            "start": 7
+          },
+          {
+            "end": 9,
+            "process": "P2",
+            "start": 8
+          },
+          {
+            "end": 10,
+            "process": "P4",
+            "start": 9
+          },
+          {
+            "end": 11,
+            "process": "P1",
+            "start": 10
+          },
+          {
+            "end": 12,
+            "process": "P3",
+            "start": 11
+          },
+          {
+            "end": 13,
+            "process": "P2",
+            "start": 12
+          },
+          {
+            "end": 14,
+            "process": "P4",
+            "start": 13
+          },
+          {
+            "end": 15,
+            "process": "P1",
+            "start": 14
+          },
+          {
+            "end": 16,
+            "process": "P3",
+            "start": 15
+          },
+          {
+            "end": 17,
+            "process": "P4",
+            "start": 16
+          },
+          {
+            "end": 18,
+            "process": "P1",
+            "start": 17
+          },
+          {
+            "end": 19,
+            "process": "P3",
+            "start": 18
+          },
+          {
+            "end": 20,
+            "process": "P4",
+            "start": 19
+          },
+          {
+            "end": 21,
+            "process": "P1",
+            "start": 20
+          },
+          {
+            "end": 22,
+            "process": "P3",
+            "start": 21
+          },
+          {
+            "end": 23,
+            "process": "P1",
+            "start": 22
+          },
+          {
+            "end": 24,
+            "process": "P3",
+            "start": 23
+          },
+          {
+            "end": 25,
+            "process": "P3",
+            "start": 24
+          },
+          {
+            "end": 26,
+            "process": "P3",
+            "start": 25
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 19.0,
+          "avg_waiting": 12.5,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "completion": 23,
+            "pid": 1,
+            "turnaround": 23,
+            "waiting": 15
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "completion": 13,
+            "pid": 2,
+            "turnaround": 12,
+            "waiting": 8
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "completion": 26,
+            "pid": 3,
+            "turnaround": 24,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 20,
+            "pid": 4,
+            "turnaround": 17,
+            "waiting": 12
+          }
+        ]
+      },
+      "sjf_non_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.8487,
+          "throughput": 0.1538
+        },
+        "context_switches": 3,
+        "gantt": [
+          {
+            "end": 8,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 12,
+            "process": "P2",
+            "start": 8
+          },
+          {
+            "end": 17,
+            "process": "P4",
+            "start": 12
+          },
+          {
+            "end": 26,
+            "process": "P3",
+            "start": 17
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 14.25,
+          "avg_waiting": 7.75,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "completion": 8,
+            "pid": 1,
+            "turnaround": 8,
+            "waiting": 0
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "completion": 12,
+            "pid": 2,
+            "turnaround": 11,
+            "waiting": 7
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "completion": 26,
+            "pid": 3,
+            "turnaround": 24,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 17,
+            "pid": 4,
+            "turnaround": 14,
+            "waiting": 9
+          }
+        ]
+      },
+      "sjf_preemptive": {
+        "advanced_metrics": {
+          "avg_response_time": 0.0,
+          "cpu_utilization": 100.0,
+          "fairness_index": 0.7269,
+          "throughput": 0.1538
+        },
+        "context_switches": 4,
+        "gantt": [
+          {
+            "end": 1,
+            "process": "P1",
+            "start": 0
+          },
+          {
+            "end": 5,
+            "process": "P2",
+            "start": 1
+          },
+          {
+            "end": 10,
+            "process": "P4",
+            "start": 5
+          },
+          {
+            "end": 17,
+            "process": "P1",
+            "start": 10
+          },
+          {
+            "end": 26,
+            "process": "P3",
+            "start": 17
+          }
+        ],
+        "metrics": {
+          "avg_turnaround": 13.0,
+          "avg_waiting": 6.5,
+          "total_completion": 26
+        },
+        "processes": [
+          {
+            "arrival": 0,
+            "burst": 8,
+            "completion": 17,
+            "pid": 1,
+            "turnaround": 17,
+            "waiting": 9
+          },
+          {
+            "arrival": 1,
+            "burst": 4,
+            "completion": 5,
+            "pid": 2,
+            "turnaround": 4,
+            "waiting": 0
+          },
+          {
+            "arrival": 2,
+            "burst": 9,
+            "completion": 26,
+            "pid": 3,
+            "turnaround": 24,
+            "waiting": 15
+          },
+          {
+            "arrival": 3,
+            "burst": 5,
+            "completion": 10,
+            "pid": 4,
+            "turnaround": 7,
+            "waiting": 2
+          }
+        ]
+      }
+    }
+  }
+}

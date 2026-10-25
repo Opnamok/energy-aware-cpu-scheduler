@@ -1,0 +1,14 @@
+# Runtime dependencies for the Energy-Aware CPU Scheduler Simulator.
+#
+# The simulator is pure Python -- no numpy, no pandas, no database. One
+# `uvicorn server:app` serves both the REST API and the frontend.
+# Development-only tooling lives in requirements-dev.txt.
+
+fastapi==0.110.1
+starlette==0.37.2
+pydantic==2.12.4
+uvicorn==0.25.0        # the ASGI server you run this with
+python-dotenv==1.2.1
+
+# Optional: only needed if MONGO_URL is set to persist runs.
+# motor==3.3.1

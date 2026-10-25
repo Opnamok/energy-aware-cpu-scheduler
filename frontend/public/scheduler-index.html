@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>energix :: energy-aware cpu scheduler simulator</title>
+    <link rel="stylesheet" href="/css/scheduler-style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        /*
+         * The FastAPI server mounts this page as a static file, so by default
+         * the API is same-origin and no base URL is needed. A split
+         * deployment (static frontend here, API elsewhere) sets this instead.
+         */
+        // window.ENERGIX_API_BASE = 'https://your-api-host.example';
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header" data-testid="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                    <span>energix // scope // vit vellore</span>
+                </div>
+                <h1 data-testid="main-title">energy-aware cpu scheduler<span class="cursor"></span></h1>
+                <p class="subtitle">discrete-event simulation of six scheduling policies over a DVFS clock (1.2 / 2.0 / 3.0 GHz)</p>
+            </div>
+        </header>
+
+        <div class="status-line" id="statusLine">
+            <span class="status-item">
+                <span class="status-dot" id="apiDot"></span>
+                api <b id="apiStatus">connecting&hellip;</b>
+            </span>
+            <span class="status-item">governor <b id="statusGovernor">utilization_window</b></span>
+            <span class="status-item">procs <b id="statusProcs">0</b></span>
+            <span class="status-item">last run <b id="statusLastRun">none</b></span>
+            <span class="status-key">
+                <kbd>1</kbd>&hellip;<kbd>6</kbd> switch tab &middot; <kbd>r</kbd> run &middot; <kbd>c</kbd> compare
+            </span>
+        </div>
+
+        <nav class="nav-tabs" data-testid="nav-tabs">
+            <button class="tab-btn active" data-tab="input" data-testid="input-tab">
+                <span class="tab-key">1</span> input
+            </button>
+            <button class="tab-btn" data-tab="results" data-testid="results-tab">
+                <span class="tab-key">2</span> results
+            </button>
+            <button class="tab-btn" data-tab="energy" data-testid="energy-tab">
+                <span class="tab-key">3</span> energy
+            </button>
+            <button class="tab-btn" data-tab="compare" data-testid="compare-tab">
+                <span class="tab-key">4</span> compare
+            </button>
+            <button class="tab-btn" data-tab="trials" data-testid="trials-tab">
+                <span class="tab-key">5</span> trials
+            </button>
+            <button class="tab-btn" data-tab="sweep" data-testid="sweep-tab">
+                <span class="tab-key">6</span> sweep
+            </button>
+        </nav>
+
+        <!-- ============================ INPUT ============================ -->
+        <div class="tab-content active" data-content="input">
+            <div class="card" data-testid="input-card">
+                <div class="card-header">
+                    <h2>configure simulation</h2>
+                </div>
+                <div class="card-body">
+                    <p class="prompt" id="cmdPreview">run --algo=eah --governor=utilization_window</p>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="algorithm">scheduling policy</label>
+                            <select id="algorithm" data-testid="algorithm-select">
+                                <option value="fcfs">FCFS &mdash; first come first serve</option>
+                                <option value="sjf">SJF &mdash; shortest job first</option>
+                                <option value="sjf_preemptive">SRTF &mdash; shortest remaining time</option>
+                                <option value="round_robin">RR &mdash; round robin</option>
+                                <option value="priority">PRIO &mdash; priority</option>
+                                <option value="eah" selected>EAH &mdash; energy-aware hybrid</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="governor">frequency governor</label>
+                            <select id="governor" data-testid="governor-select">
+                                <option value="utilization_window" selected>utilization_window &mdash; sliding window</option>
+                                <option value="eah_score">eah_score &mdash; urgency scored</option>
+                                <option value="ondemand_queue">ondemand_queue &mdash; queue depth</option>
+                                <option value="race_to_idle">race_to_idle &mdash; always HIGH</option>
+                                <option value="fixed:high">fixed:high &mdash; 3.0 GHz</option>
+                                <option value="fixed:med">fixed:med &mdash; 2.0 GHz</option>
+                                <option value="fixed:low">fixed:low &mdash; 1.2 GHz</option>
+                            </select>
+                            <span class="form-hint">EAH picks its own clock; this governs the baselines.</span>
+                        </div>
+
+                        <div class="form-group" id="quantum-group">
+                            <label for="quantum">time quantum (work units)</label>
+                            <input type="number" id="quantum" value="2" min="1" data-testid="quantum-input">
+                            <span class="form-hint">Round Robin only. Counted in work, not wall clock.</span>
+                        </div>
+
+                        <div class="form-group" id="threshold-group">
+                            <label for="threshold">EAH short/long threshold</label>
+                            <input type="number" id="threshold" placeholder="auto (mean burst)" data-testid="threshold-input">
+                            <span class="form-hint">Blank uses the mean burst time.</span>
+                        </div>
+                    </div>
+
+                    <div class="process-table-container">
+                        <div class="table-header">
+                            <h3>process list</h3>
+                            <div class="table-actions">
+                                <div class="form-group">
+                                    <select id="scenarioSelect" onchange="loadScenarioTemplate()">
+                                        <option value="">real-world scenarios&hellip;</option>
+                                        <option value="webserver">web server workload</option>
+                                        <option value="videoencoding">video encoding</option>
+                                        <option value="database">database transactions</option>
+                                        <option value="gaming">gaming system</option>
+                                        <option value="scientific">scientific computing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select id="sampleSelect" onchange="loadSelectedSample()" data-testid="sample-select">
+                                        <option value="">sample workloads&hellip;</option>
+                                        <option value="balanced">balanced</option>
+                                        <option value="short_processes">short processes</option>
+                                        <option value="long_burst">long bursts</option>
+                                        <option value="equal_burst">equal bursts</option>
+                                        <option value="heavy_load">heavy load</option>
+                                        <option value="mixed_priority">mixed priorities</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-secondary" onclick="addProcess()" data-testid="add-process-btn">
+                                    <i class="fas fa-plus"></i> add
+                                </button>
+                                <button class="btn btn-secondary" onclick="document.getElementById('csvFileInput').click()">
+                                    <i class="fas fa-file-csv"></i> csv
+                                </button>
+                                <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="handleCSVUpload(event)">
+                                <button class="btn btn-info" onclick="openSystemProcessImporter()">
+                                    <i class="fas fa-download"></i> import live
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table id="processTable" data-testid="process-table">
+                                <thead>
+                                    <tr>
+                                        <th>pid</th>
+                                        <th>label</th>
+                                        <th class="num">arrival</th>
+                                        <th class="num">burst (work)</th>
+                                        <th class="num">priority</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="processTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="note info">
+                        <b>burst is work, not time.</b> It is the work a process needs at the
+                        reference clock (3.0 GHz). At 2.0 GHz the same work takes
+                        1.5&times; as long; at 1.2 GHz, 2.5&times;. That is why lowering the
+                        clock saves power but can cost completion time &mdash; and why the
+                        Gantt chart shows half-unit boundaries once a slower state is used.
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="runScheduler()" data-testid="run-btn">
+                            <i class="fas fa-play"></i> run scheduler
+                        </button>
+                        <button class="btn btn-success" onclick="compareAll()" data-testid="compare-all-btn">
+                            <i class="fas fa-scale-balanced"></i> compare all
+                        </button>
+                        <button class="btn btn-info" onclick="openPredictionWizard()">
+                            <i class="fas fa-wand-magic-sparkles"></i> wizard
+                        </button>
+                        <button class="btn btn-secondary" onclick="openMulticoreSimulator()">
+                            <i class="fas fa-microchip"></i> multi-core
+                        </button>
+                        <button class="btn btn-danger" onclick="clearProcesses()" data-testid="clear-btn">
+                            <i class="fas fa-trash"></i> clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================== RESULTS =========================== -->
+        <div class="tab-content" data-content="results">
+            <div class="card" data-testid="results-card">
+                <div class="card-header">
+                    <h2>scheduling results</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-secondary" onclick="loadDrilldown()">
+                            <i class="fas fa-magnifying-glass-chart"></i> drill down
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportResults()" data-testid="export-btn">
+                            <i class="fas fa-file-export"></i> export json
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="resultsContent" data-testid="results-content">
+                        <div class="empty-state">
+                            <i class="fas fa-terminal"></i>
+                            <p>no run yet &mdash; configure a workload and press run</p>
+                        </div>
+                    </div>
+                    <div id="drilldownContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================ ENERGY =========================== -->
+        <div class="tab-content" data-content="energy">
+            <div class="card" data-testid="energy-card">
+                <div class="card-header">
+                    <h2>energy analysis (dvfs)</h2>
+                </div>
+                <div class="card-body">
+                    <div id="energyContent" data-testid="energy-content">
+                        <div class="empty-state">
+                            <i class="fas fa-bolt"></i>
+                            <p>no run yet &mdash; energy is computed during simulation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =========================== COMPARE =========================== -->
+        <div class="tab-content" data-content="compare">
+            <div class="card" data-testid="compare-card">
+                <div class="card-header">
+                    <h2>policy comparison</h2>
+                </div>
+                <div class="card-body">
+                    <div id="compareContent" data-testid="compare-content">
+                        <div class="empty-state">
+                            <i class="fas fa-scale-balanced"></i>
+                            <p>press "compare all" to run every policy on this workload</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================ TRIALS =========================== -->
+        <div class="tab-content" data-content="trials">
+            <div class="card">
+                <div class="card-header">
+                    <h2>repeated trials</h2>
+                </div>
+                <div class="card-body">
+                    <div class="note info">
+                        One run proves nothing: random workloads vary by far more than the
+                        differences between policies. Each trial here generates a fresh
+                        workload from the seed and gives <b>every policy the identical
+                        workload</b>, so the paired differences cancel the workload noise.
+                        The same seed always reproduces the same numbers.
+                    </div>
+
+                    <div class="analysis-controls">
+                        <div class="form-group">
+                            <label for="mcTrials">trials</label>
+                            <input type="number" id="mcTrials" value="200" min="1" max="2000">
+                        </div>
+                        <div class="form-group">
+                            <label for="mcSeed">seed</label>
+                            <input type="number" id="mcSeed" value="42">
+                        </div>
+                        <div class="form-group">
+                            <label for="mcBurst">burst distribution</label>
+                            <select id="mcBurst">
+                                <option value="bimodal" selected>bimodal (short/long mix)</option>
+                                <option value="uniform">uniform</option>
+                                <option value="exponential">exponential</option>
+                                <option value="lognormal">lognormal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mcRate">arrival rate</label>
+                            <input type="number" id="mcRate" value="0.25" min="0.05" max="3" step="0.05">
+                        </div>
+                        <div class="form-group">
+                            <label for="mcBaseline">baseline</label>
+                            <select id="mcBaseline">
+                                <option value="fcfs" selected>fcfs</option>
+                                <option value="sjf_non_preemptive">sjf</option>
+                                <option value="sjf_preemptive">srtf</option>
+                                <option value="round_robin">round_robin</option>
+                                <option value="priority">priority</option>
+                                <option value="eah">eah</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" onclick="runExperiment()">
+                                <i class="fas fa-dice"></i> run trials
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="trialsContent">
+                        <div class="empty-state">
+                            <i class="fas fa-chart-simple"></i>
+                            <p>no trials yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================ SWEEP ============================ -->
+        <div class="tab-content" data-content="sweep">
+            <div class="card">
+                <div class="card-header">
+                    <h2>parameter sweep</h2>
+                </div>
+                <div class="card-body">
+                    <div class="note info">
+                        Sweeping one parameter at a time shows how sensitive each policy is
+                        to it. <code>p_static</code> is the most instructive axis: as the
+                        leakage floor rises, the energy-optimal clock moves from LOW to MED
+                        to HIGH &mdash; which is why real processors do not simply run as
+                        slowly as possible.
+                    </div>
+
+                    <div class="analysis-controls">
+                        <div class="form-group">
+                            <label for="swParam">parameter</label>
+                            <select id="swParam">
+                                <option value="quantum" selected>quantum (round robin)</option>
+                                <option value="eah_threshold">eah_threshold</option>
+                                <option value="p_static">p_static (leakage floor)</option>
+                                <option value="urgency_high">urgency_high (eah)</option>
+                                <option value="context_switch_penalty">context_switch_penalty</option>
+                                <option value="util_threshold_high">util_threshold_high</option>
+                                <option value="governor">governor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="swMetric">metric</label>
+                            <select id="swMetric">
+                                <option value="total_energy" selected>total energy</option>
+                                <option value="avg_turnaround">avg turnaround</option>
+                                <option value="avg_waiting">avg waiting</option>
+                                <option value="edp">energy-delay product</option>
+                                <option value="context_switches">context switches</option>
+                                <option value="total_completion">completion time</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="swTrials">workloads per point</label>
+                            <input type="number" id="swTrials" value="10" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="swSeed">seed</label>
+                            <input type="number" id="swSeed" value="7">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" onclick="runSweep()">
+                                <i class="fas fa-chart-line"></i> run sweep
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="sweepContent">
+                        <div class="empty-state">
+                            <i class="fas fa-sliders"></i>
+                            <p>no sweep yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>energy figures are model estimates from P = c_eff &middot; f &middot; V&sup2; + p_static, not measurements from physical hardware</p>
+            <p>operating systems lab project &middot; 2025 &middot; SCOPE, VIT Vellore</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="/js/theme.js?v=2"></script>
+    <script src="/js/scheduler-api.js?v=2"></script>
+    <script src="/js/scheduler-gantt.js?v=2"></script>
+    <script src="/js/scheduler-charts.js?v=2"></script>
+    <script src="/js/scheduler-animation.js?v=2"></script>
+    <script src="/js/scheduler-analysis.js?v=2"></script>
+    <script src="/js/scheduler-main.js?v=2"></script>
+</body>
+</html>

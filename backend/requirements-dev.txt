@@ -1,0 +1,9 @@
+# Development tooling. Not needed to run the simulator.
+-r requirements.txt
+
+black==25.11.0
+flake8==7.3.0
+isort==7.0.0
+mypy==1.18.2
+pytest==9.0.1
+requests==2.32.5   # used by test_samples.py to drive a running server
