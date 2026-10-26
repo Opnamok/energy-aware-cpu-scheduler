@@ -24,13 +24,7 @@ A comprehensive web-based CPU scheduling simulator demonstrating **6 scheduling 
 
 ---
 
-## 🌐 Live Demo
 
-**🚀 Try it now:** [https://energi-x-adaptive-power-optimized-s.vercel.app](https://energi-x-adaptive-power-optimized-s.vercel.app)
-
-**Backend API:** [https://energix-adaptive-power-optimized-scheduler-production.up.railway.app](https://energix-adaptive-power-optimized-scheduler-production.up.railway.app)
-
----
 
 ## Quick Start
 
